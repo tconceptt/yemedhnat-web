@@ -1,3 +1,4 @@
+import Navigation from '@/components/Navigation'
 import Hero from '@/components/Hero'
 import FounderSection from '@/components/FounderSection'
 import OurApproach from '@/components/OurApproach'
@@ -9,21 +10,26 @@ import Footer from '@/components/Footer'
 
 export default function Home() {
   return (
-    <main className="min-h-screen">
-      <Hero />
-      <section id="about">
-        <FounderSection />
-      </section>
-      <OurApproach />
-      <section id="services">
-        <Services />
-      </section>
-      <WhyChooseUs />
-      <section id="contact">
-        <ContactLocation />
-      </section>
-      <FinalCTA />
-      <Footer />
-    </main>
+    <>
+      <Navigation />
+      <main className="min-h-screen">
+        <Hero />
+        <section id="about">
+          <FounderSection />
+        </section>
+        <OurApproach />
+        <section id="services">
+          <Services />
+        </section>
+        <section id="why-us">
+          <WhyChooseUs />
+        </section>
+        <section id="contact">
+          <ContactLocation />
+        </section>
+        <FinalCTA />
+        <Footer />
+      </main>
+    </>
   )
 }

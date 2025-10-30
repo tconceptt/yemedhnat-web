@@ -1,20 +1,10 @@
 'use client'
 
-import { motion, useScroll, useTransform } from 'framer-motion'
-import { Calendar, Award, MapPin, Stethoscope } from 'lucide-react'
+import { motion } from 'framer-motion'
+import { Calendar, Award, MapPin, Stethoscope, ArrowRight } from 'lucide-react'
 import Button from './Button'
-import { useRef } from 'react'
 
 export default function Hero() {
-  const ref = useRef(null)
-  const { scrollYProgress } = useScroll({
-    target: ref,
-    offset: ['start start', 'end start'],
-  })
-
-  const y = useTransform(scrollYProgress, [0, 1], ['0%', '50%'])
-  const opacity = useTransform(scrollYProgress, [0, 1], [1, 0])
-
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -27,7 +17,7 @@ export default function Hero() {
   }
 
   const itemVariants = {
-    hidden: { opacity: 0, y: 20 },
+    hidden: { opacity: 0, y: 30 },
     visible: {
       opacity: 1,
       y: 0,
@@ -39,100 +29,127 @@ export default function Hero() {
   }
 
   return (
-    <section ref={ref} className="relative h-screen min-h-[600px] flex items-center overflow-hidden">
-      {/* Parallax Background */}
-      <motion.div
-        style={{ y }}
-        className="absolute inset-0 z-0"
-      >
-        <div className="absolute inset-0 bg-gradient-to-r from-primary-dark/95 via-primary/90 to-primary-dark/95 z-10" />
-        <img
-          src="https://images.unsplash.com/photo-1631217868264-e5b90bb7e133?q=80&w=2091&auto=format&fit=crop"
-          alt="Compassionate healthcare"
-          className="w-full h-full object-cover"
-        />
-      </motion.div>
-
-      {/* Content */}
-      <motion.div
-        style={{ opacity }}
-        className="relative z-20 container mx-auto px-4 sm:px-6 lg:px-8"
-      >
-        <motion.div
-          variants={containerVariants}
-          initial="hidden"
-          animate="visible"
-          className="max-w-4xl mx-auto text-center text-white"
-        >
-          {/* Main Headline */}
-          <motion.h1
-            variants={itemVariants}
-            className="font-serif text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold mb-6 text-balance leading-tight"
-          >
-            Comprehensive Internal Medicine Care Built on 30 Years of Compassionate Expertise
-          </motion.h1>
-
-          {/* Subheadline */}
-          <motion.p
-            variants={itemVariants}
-            className="text-lg sm:text-xl lg:text-2xl mb-10 text-primary-light/90 max-w-3xl mx-auto text-balance"
-          >
-            Experience personalized, evidence-based healthcare where every patient is truly heard and understood
-          </motion.p>
-
-          {/* CTA Buttons */}
+    <section id="home" className="relative min-h-screen flex items-center pt-20 bg-gradient-to-br from-white via-primary-light/20 to-white">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-16 lg:py-24">
+        <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center max-w-7xl mx-auto">
+          {/* Content */}
           <motion.div
-            variants={itemVariants}
-            className="flex flex-col sm:flex-row gap-4 justify-center mb-12"
+            variants={containerVariants}
+            initial="hidden"
+            animate="visible"
+            className="text-left"
           >
-            <Button variant="secondary" size="lg" icon={Calendar}>
-              Schedule Appointment
-            </Button>
-            <Button variant="outline" size="lg">
-              Our Services
-            </Button>
+            {/* Badge */}
+            <motion.div
+              variants={itemVariants}
+              className="inline-flex items-center gap-2 px-4 py-2 bg-primary-light rounded-full mb-6"
+            >
+              <Award className="w-4 h-4 text-primary" />
+              <span className="text-sm font-semibold text-primary tracking-wide">
+                30+ Years of Excellence
+              </span>
+            </motion.div>
+
+            {/* Main Headline */}
+            <motion.h1
+              variants={itemVariants}
+              className="font-serif text-4xl sm:text-5xl lg:text-6xl font-semibold text-primary-dark mb-6 leading-tight"
+            >
+              Comprehensive Internal Medicine Care Built on Compassionate Expertise
+            </motion.h1>
+
+            {/* Subheadline */}
+            <motion.p
+              variants={itemVariants}
+              className="text-lg sm:text-xl text-gray-700 mb-8 leading-relaxed tracking-wide"
+            >
+              Experience personalized, evidence-based healthcare where every patient is truly heard and understood
+            </motion.p>
+
+            {/* CTA Buttons */}
+            <motion.div
+              variants={itemVariants}
+              className="flex flex-col sm:flex-row gap-4 mb-12"
+            >
+              <Button variant="primary" size="lg" icon={ArrowRight}>
+                Schedule Appointment
+              </Button>
+              <Button variant="outline" size="lg">
+                Our Services
+              </Button>
+            </motion.div>
+
+            {/* Trust Indicators */}
+            <motion.div
+              variants={itemVariants}
+              className="grid grid-cols-2 gap-6"
+            >
+              <div className="flex items-start gap-3">
+                <div className="flex-shrink-0 w-12 h-12 bg-primary-light rounded-lg flex items-center justify-center">
+                  <Stethoscope className="w-6 h-6 text-primary" />
+                </div>
+                <div>
+                  <p className="font-semibold text-primary-dark">Modern Diagnostics</p>
+                  <p className="text-sm text-gray-600">State-of-the-art facilities</p>
+                </div>
+              </div>
+              <div className="flex items-start gap-3">
+                <div className="flex-shrink-0 w-12 h-12 bg-primary-light rounded-lg flex items-center justify-center">
+                  <MapPin className="w-6 h-6 text-primary" />
+                </div>
+                <div>
+                  <p className="font-semibold text-primary-dark">Convenient Location</p>
+                  <p className="text-sm text-gray-600">Bole Bulbula, Addis Ababa</p>
+                </div>
+              </div>
+            </motion.div>
           </motion.div>
 
-          {/* Trust Indicators */}
+          {/* Image Section */}
           <motion.div
-            variants={itemVariants}
-            className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 max-w-4xl mx-auto"
+            initial={{ opacity: 0, x: 30 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 1, delay: 0.5 }}
+            className="relative"
           >
-            <div className="flex flex-col items-center p-4 bg-white/10 backdrop-blur-sm rounded-lg">
-              <Award className="w-8 h-8 mb-2 text-accent-teal" />
-              <p className="text-sm font-medium">30+ Years Experience</p>
-            </div>
-            <div className="flex flex-col items-center p-4 bg-white/10 backdrop-blur-sm rounded-lg">
-              <Stethoscope className="w-8 h-8 mb-2 text-accent-teal" />
-              <p className="text-sm font-medium">Modern Diagnostics</p>
-            </div>
-            <div className="flex flex-col items-center p-4 bg-white/10 backdrop-blur-sm rounded-lg">
-              <MapPin className="w-8 h-8 mb-2 text-accent-teal" />
-              <p className="text-sm font-medium">Bole Bulbula, Addis Ababa</p>
-            </div>
-            <div className="flex flex-col items-center p-4 bg-white/10 backdrop-blur-sm rounded-lg">
-              <Calendar className="w-8 h-8 mb-2 text-accent-teal" />
-              <p className="text-sm font-medium">Patient-Centered Care</p>
+            <div className="relative">
+              {/* Decorative element */}
+              <div className="absolute -inset-4 bg-gradient-to-br from-primary/20 to-accent-teal/20 rounded-3xl blur-2xl opacity-70" />
+
+              {/* Main image */}
+              <div className="relative rounded-3xl overflow-hidden shadow-2xl">
+                <img
+                  src="https://images.unsplash.com/photo-1631217868264-e5b90bb7e133?q=80&w=2091&auto=format&fit=crop"
+                  alt="Compassionate healthcare at Yemedhnat Clinic"
+                  className="w-full h-[500px] lg:h-[600px] object-cover"
+                />
+              </div>
+
+              {/* Floating stats card */}
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: 1.2 }}
+                className="absolute -bottom-6 -left-6 bg-white rounded-2xl shadow-xl p-6 max-w-xs"
+              >
+                <div className="flex items-center gap-4">
+                  <div className="w-16 h-16 bg-primary-light rounded-xl flex items-center justify-center">
+                    <Calendar className="w-8 h-8 text-primary" />
+                  </div>
+                  <div>
+                    <p className="text-2xl font-bold text-primary-dark">1000+</p>
+                    <p className="text-sm text-gray-600">Patients Served</p>
+                  </div>
+                </div>
+              </motion.div>
             </div>
           </motion.div>
-        </motion.div>
-      </motion.div>
+        </div>
+      </div>
 
-      {/* Scroll Indicator */}
-      <motion.div
-        initial={{ opacity: 0, y: -20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 2, duration: 1 }}
-        className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-20"
-      >
-        <motion.div
-          animate={{ y: [0, 10, 0] }}
-          transition={{ duration: 1.5, repeat: Infinity }}
-          className="w-6 h-10 border-2 border-white/50 rounded-full flex items-start justify-center p-2"
-        >
-          <motion.div className="w-1 h-2 bg-white/50 rounded-full" />
-        </motion.div>
-      </motion.div>
+      {/* Decorative background elements */}
+      <div className="absolute top-20 right-10 w-72 h-72 bg-accent-teal/5 rounded-full blur-3xl" />
+      <div className="absolute bottom-20 left-10 w-96 h-96 bg-primary/5 rounded-full blur-3xl" />
     </section>
   )
 }
