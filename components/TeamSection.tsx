@@ -6,7 +6,7 @@ import Image from 'next/image'
 
 export default function TeamSection() {
   return (
-    <section className="py-12 sm:py-16 md:py-20 lg:py-32 bg-white">
+    <section className="py-12 sm:py-16 md:py-20 lg:py-32 bg-white overflow-x-hidden">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="max-w-6xl mx-auto">
           <div className="grid lg:grid-cols-2 gap-8 sm:gap-12 lg:gap-16 items-center">
@@ -16,7 +16,7 @@ export default function TeamSection() {
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.8 }}
-              className="relative order-2 lg:order-1"
+              className="relative order-2 lg:order-1 overflow-hidden"
             >
               <div className="relative">
                 {/* Decorative element */}

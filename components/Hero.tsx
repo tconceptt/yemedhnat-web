@@ -95,7 +95,7 @@ export default function Hero() {
   ]
 
   return (
-    <section id="home" className="relative min-h-screen flex items-center pt-20 bg-gradient-to-br from-white via-primary-light/20 to-white">
+    <section id="home" className="relative min-h-screen flex items-center pt-20 bg-gradient-to-br from-white via-primary-light/20 to-white overflow-x-hidden">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12 md:py-16 lg:py-24">
         <div className="grid lg:grid-cols-2 gap-8 sm:gap-12 lg:gap-16 items-center max-w-7xl mx-auto">
           {/* Content */}
@@ -184,7 +184,7 @@ export default function Hero() {
             initial={{ opacity: 0, x: 30 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 1, delay: 0.5 }}
-            className="relative order-2 lg:order-2 mb-8 lg:mb-0"
+            className="relative order-2 lg:order-2 mb-8 lg:mb-0 overflow-hidden"
           >
             <div className="relative">
               {/* Decorative element */}
