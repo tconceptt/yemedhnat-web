@@ -2,7 +2,8 @@
 
 import { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-import { Calendar, Award, MapPin, Stethoscope, Phone, Share2, X, Facebook, MessageCircle, Users } from 'lucide-react'
+import Image from 'next/image'
+import { Award, MapPin, Stethoscope, Phone, X, Facebook, Users, Instagram } from 'lucide-react'
 
 export default function Hero() {
   const [isSocialPopupOpen, setIsSocialPopupOpen] = useState(false)
@@ -44,24 +45,52 @@ export default function Hero() {
 
   const phoneNumber = '+251974246764'
 
+  const TikTokIcon = ({ className }: { className?: string }) => (
+    <svg
+      className={className}
+      viewBox="0 0 24 24"
+      fill="currentColor"
+      aria-hidden="true"
+    >
+      <path d="M13 3h3.1c.4 2.1 2 3.7 3.9 4V10c-1.9-.1-3.6-.7-5-1.7v7.1c0 3.4-2.7 6.1-6.1 6.1S2.8 18.8 2.8 15.4c0-3.4 2.7-6.1 6.1-6.1.6 0 1.2.1 1.8.2V12c-.5-.3-1.1-.5-1.8-.5-1.8 0-3.2 1.4-3.2 3.2s1.4 3.2 3.2 3.2 3.2-1.4 3.2-3.2V3z" />
+    </svg>
+  )
+
+  const TelegramIcon = ({ className }: { className?: string }) => (
+    <svg
+      className={className}
+      viewBox="0 0 24 24"
+      fill="currentColor"
+      aria-hidden="true"
+    >
+      <path d="M21.9 2.6L2.7 10.2c-1 .4-.9 1.8.1 2.1l4.8 1.5 1.8 5c.3 1 .7 1 1.3.2l3.3-5.2 5.4 4c.8.6 1.9.1 2.1-.9l2.1-13c.2-1-.7-1.8-1.7-1.3z" />
+    </svg>
+  )
+
   const socialLinks = [
     {
       name: 'TikTok',
-      icon: Share2,
-      url: '#', // Placeholder
+      icon: TikTokIcon,
+      url: 'https://www.tiktok.com/@yemedhnat',
       color: 'text-black',
     },
     {
       name: 'Telegram Channel',
-      icon: MessageCircle,
-      url: '#', // Placeholder
+      icon: TelegramIcon,
+      url: 'https://t.me/yemedhinat',
       color: 'text-blue-500',
     },
     {
       name: 'Facebook',
       icon: Facebook,
-      url: '#', // Placeholder
+      url: 'https://www.facebook.com/profile.php?id=61551855060700',
       color: 'text-blue-600',
+    },
+    {
+      name: 'Instagram',
+      icon: Instagram,
+      url: 'https://www.instagram.com/yemedhnat?igsh=MTdtYzRyNmkxdWs1NA==',
+      color: 'text-pink-500',
     },
   ]
 
@@ -74,12 +103,12 @@ export default function Hero() {
             variants={containerVariants}
             initial="hidden"
             animate="visible"
-            className="text-left order-2 lg:order-1 relative z-10"
+            className="text-left order-1 lg:order-1 relative z-10 max-w-3xl"
           >
             {/* Badge */}
             <motion.div
               variants={itemVariants}
-              className="inline-flex items-center gap-2 px-3 sm:px-4 py-1.5 sm:py-2 bg-primary-light rounded-full mb-4 sm:mb-6"
+              className="inline-flex items-center gap-2 px-3 sm:px-4 py-1.5 sm:py-2 bg-primary-light rounded-full mb-6 sm:mb-8"
             >
               <Award className="w-3 h-3 sm:w-4 sm:h-4 text-primary" />
               <span className="text-xs sm:text-sm font-semibold text-primary tracking-wide">
@@ -90,15 +119,15 @@ export default function Hero() {
             {/* Main Headline */}
             <motion.h1
               variants={itemVariants}
-              className="font-serif text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-medium text-primary-dark mb-4 sm:mb-6 leading-tight tracking-tight"
+              className="font-serif text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-medium text-primary-dark mb-6 sm:mb-8 leading-snug md:leading-tight tracking-tight"
             >
-              Comprehensive Internal Medicine Care Built on Compassionate Expertise
+              Healing with Compassion and Clinical Excellence in Addis Ababa
             </motion.h1>
 
             {/* Subheadline */}
             <motion.p
               variants={itemVariants}
-              className="text-base sm:text-lg md:text-xl text-gray-700 mb-6 sm:mb-8 leading-relaxed"
+              className="text-base sm:text-lg md:text-xl text-gray-700 mb-8 sm:mb-10 md:mb-12 leading-loose max-w-2xl"
             >
               Experience personalized, evidence-based healthcare where every patient is truly heard and understood
             </motion.p>
@@ -120,7 +149,7 @@ export default function Hero() {
                 className="inline-flex items-center justify-center gap-2 px-8 py-4 border-2 border-primary text-primary hover:bg-primary hover:text-white text-lg font-medium rounded-lg shadow-md hover:shadow-xl transition-all duration-300 w-full sm:w-auto"
               >
                 <Users className="w-6 h-6" />
-                Follow Us on Socials
+                Follow Our Socials
               </button>
             </motion.div>
 
@@ -155,7 +184,7 @@ export default function Hero() {
             initial={{ opacity: 0, x: 30 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 1, delay: 0.5 }}
-            className="relative order-1 lg:order-2 mb-8 lg:mb-0"
+            className="relative order-2 lg:order-2 mb-8 lg:mb-0"
           >
             <div className="relative">
               {/* Decorative element */}
@@ -163,30 +192,17 @@ export default function Hero() {
 
               {/* Main image */}
               <div className="relative rounded-2xl sm:rounded-3xl overflow-hidden shadow-2xl">
-                <img
+                <Image
                   src="/doctor-and-patient.JPG"
                   alt="Doctor and patient consultation at Yemedhnat Clinic - compassionate, personalized healthcare"
+                  width={1200}
+                  height={800}
                   className="w-full h-[300px] sm:h-[400px] md:h-[500px] lg:h-[600px] object-cover"
+                  priority
                 />
               </div>
 
-              {/* Floating stats card */}
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: 1.2 }}
-                className="absolute -bottom-4 sm:-bottom-6 -left-2 sm:-left-6 bg-white rounded-xl sm:rounded-2xl shadow-xl p-4 sm:p-6 max-w-[200px] sm:max-w-xs"
-              >
-                <div className="flex items-center gap-3 sm:gap-4">
-                  <div className="w-12 h-12 sm:w-16 sm:h-16 bg-primary-light rounded-lg sm:rounded-xl flex items-center justify-center">
-                    <Calendar className="w-6 h-6 sm:w-8 sm:h-8 text-primary" />
-                  </div>
-                  <div>
-                    <p className="text-xl sm:text-2xl font-bold text-primary-dark">1000+</p>
-                    <p className="text-xs sm:text-sm text-gray-600">Patients Served</p>
-                  </div>
-                </div>
-              </motion.div>
+              
             </div>
           </motion.div>
         </div>
@@ -224,8 +240,8 @@ export default function Hero() {
                 </button>
 
                 <div className="text-center mb-6">
-                  <div className="inline-flex items-center justify-center w-14 h-14 bg-primary-light rounded-full mb-4">
-                    <Users className="w-8 h-8 text-primary" />
+                  <div className="inline-flex items-center justify-center w-14 h-14 bg-primary-light rounded-full mb-4 overflow-hidden">
+                    <Image src="/logo-transparent.png" alt="Yemedhnat Clinic logo" width={40} height={40} className="w-10 h-10 object-contain" />
                   </div>
                   <h3 className="text-2xl font-semibold text-gray-800 font-serif">
                     Follow For Medical Tips
