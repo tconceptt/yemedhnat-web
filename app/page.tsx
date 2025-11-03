@@ -2,6 +2,7 @@ import Navigation from '@/components/Navigation'
 import Hero from '@/components/Hero'
 import FounderSection from '@/components/FounderSection'
 import OurApproach from '@/components/OurApproach'
+import TeamSection from '@/components/TeamSection'
 import Services from '@/components/Services'
 import WhyChooseUs from '@/components/WhyChooseUs'
 import ContactLocation from '@/components/ContactLocation'
@@ -18,6 +19,7 @@ export default function Home() {
           <FounderSection />
         </section>
         <OurApproach />
+        <TeamSection />
         <section id="services">
           <Services />
         </section>

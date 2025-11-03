@@ -21,20 +21,25 @@ const config: Config = {
         background: '#FAFBFC',
       },
       fontFamily: {
-        serif: ['Playfair Display', 'Georgia', 'serif'],
-        sans: ['Inter', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'sans-serif'],
+        serif: ['Cormorant Garamond', 'Georgia', 'serif'],
+        sans: ['Source Sans Pro', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'sans-serif'],
       },
       fontSize: {
-        'display': ['4rem', { lineHeight: '1.1', fontWeight: '600', letterSpacing: '-0.02em' }],
-        'display-sm': ['3rem', { lineHeight: '1.2', fontWeight: '600', letterSpacing: '-0.01em' }],
+        'display': ['4rem', { lineHeight: '1.15', fontWeight: '500', letterSpacing: '-0.01em' }],
+        'display-sm': ['3rem', { lineHeight: '1.2', fontWeight: '500', letterSpacing: '-0.005em' }],
       },
       fontWeight: {
-        'heading': '600',
+        'heading': '500',
         'body': '400',
-        'semibold': '500',
+        'semibold': '600',
       },
       letterSpacing: {
-        'subheading': '0.025em',
+        'subheading': '0.01em',
+        'tight': '-0.01em',
+      },
+      lineHeight: {
+        'relaxed': '1.75',
+        'loose': '2',
       },
       animation: {
         'fade-in': 'fadeIn 0.6s ease-out',

@@ -51,8 +51,8 @@ export default function Navigation() {
         transition={{ duration: 0.5 }}
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
           isScrolled
-            ? 'bg-white shadow-lg py-4'
-            : 'bg-white/95 backdrop-blur-sm py-6'
+            ? 'bg-white shadow-lg py-3 sm:py-4'
+            : 'bg-white/95 backdrop-blur-sm py-4 sm:py-6'
         }`}
       >
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
@@ -61,13 +61,13 @@ export default function Navigation() {
             <a
               href="#home"
               onClick={(e) => scrollToSection(e, '#home')}
-              className="flex items-center gap-3 group"
+              className="flex items-center gap-2 sm:gap-3 group"
             >
-              <div className="w-10 h-10 sm:w-12 sm:h-12 bg-primary rounded-full flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
-                <span className="text-white font-bold text-lg sm:text-xl">Y</span>
+              <div className="w-9 h-9 sm:w-10 sm:h-10 md:w-12 md:h-12 bg-primary rounded-full flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                <span className="text-white font-bold text-base sm:text-lg md:text-xl">Y</span>
               </div>
               <div className="hidden sm:block">
-                <h1 className="font-serif font-semibold text-xl text-primary-dark leading-tight">
+                <h1 className="font-serif font-medium text-lg sm:text-xl text-primary-dark leading-tight tracking-tight">
                   Yemedhnat
                 </h1>
                 <p className="text-xs text-gray-600 tracking-wide">Internal Medicine</p>
@@ -91,7 +91,17 @@ export default function Navigation() {
 
             {/* Desktop CTA */}
             <div className="hidden lg:block">
-              <Button variant="primary" size="md" icon={Calendar}>
+              <Button 
+                variant="primary" 
+                size="md" 
+                icon={Calendar} 
+                onClick={(e) => {
+                  if (e) {
+                    e.preventDefault()
+                    scrollToSection(e as any, '#contact')
+                  }
+                }}
+              >
                 Book Appointment
               </Button>
             </div>
@@ -136,7 +146,7 @@ export default function Navigation() {
               <div className="flex flex-col h-full">
                 {/* Header */}
                 <div className="flex items-center justify-between p-6 border-b">
-                  <h2 className="font-serif font-semibold text-lg text-primary-dark">
+                  <h2 className="font-serif font-medium text-lg text-primary-dark tracking-tight">
                     Menu
                   </h2>
                   <button
@@ -172,6 +182,12 @@ export default function Navigation() {
                     size="lg"
                     icon={Calendar}
                     className="w-full"
+                    onClick={(e) => {
+                      if (e) {
+                        e.preventDefault()
+                        scrollToSection(e as any, '#contact')
+                      }
+                    }}
                   >
                     Book Appointment
                   </Button>

@@ -1,0 +1,4 @@
+# This file ensures the public folder is tracked by git
+# Static assets placed in this folder will be served at the root URL
+# Example: public/logo.png is accessible at /logo.png
+

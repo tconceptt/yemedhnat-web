@@ -38,24 +38,24 @@ const services = [
 
 export default function Services() {
   return (
-    <section className="py-20 sm:py-24 lg:py-32 bg-white">
+    <section className="py-12 sm:py-16 md:py-20 lg:py-32 bg-white">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="text-center mb-16"
+          className="text-center mb-10 sm:mb-12 md:mb-16"
         >
-          <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-primary-dark mb-4">
+          <h2 className="font-serif text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-medium text-primary-dark mb-3 sm:mb-4 tracking-tight">
             Comprehensive Services
           </h2>
-          <p className="text-lg text-gray-700 max-w-2xl mx-auto">
+          <p className="text-base sm:text-lg text-gray-700 max-w-2xl mx-auto px-4">
             Full-spectrum internal medicine care under one roof
           </p>
         </motion.div>
 
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 max-w-6xl mx-auto">
           {services.map((service, index) => (
             <motion.div
               key={service.title}
@@ -66,11 +66,11 @@ export default function Services() {
               whileHover={{ scale: 1.05 }}
               className="group"
             >
-              <div className="bg-gradient-to-br from-primary-light to-white border border-primary/10 rounded-xl p-6 hover:shadow-xl transition-all duration-300 h-full">
-                <div className="mb-4 inline-flex p-3 bg-white rounded-lg group-hover:bg-primary group-hover:scale-110 transition-all duration-300 shadow-sm">
-                  <service.icon className="w-6 h-6 text-primary group-hover:text-white transition-colors duration-300" />
+              <div className="bg-gradient-to-br from-primary-light to-white border border-primary/10 rounded-xl p-5 sm:p-6 hover:shadow-xl transition-all duration-300 h-full">
+                <div className="mb-3 sm:mb-4 inline-flex p-2.5 sm:p-3 bg-white rounded-lg group-hover:bg-primary group-hover:scale-110 transition-all duration-300 shadow-sm">
+                  <service.icon className="w-5 h-5 sm:w-6 sm:h-6 text-primary group-hover:text-white transition-colors duration-300" />
                 </div>
-                <h3 className="font-serif text-xl font-bold text-primary-dark mb-3">
+                <h3 className="font-serif text-lg sm:text-xl font-medium text-primary-dark mb-2 sm:mb-3 tracking-tight">
                   {service.title}
                 </h3>
                 <p className="text-gray-700 text-sm leading-relaxed">

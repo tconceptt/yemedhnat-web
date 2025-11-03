@@ -1,0 +1,7 @@
+# https://www.robotstxt.org/robotstxt.html
+User-agent: *
+Allow: /
+
+# Sitemap (update this URL when you have a sitemap)
+# Sitemap: https://yemedhnatclinic.com/sitemap.xml
+
