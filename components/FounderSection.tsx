@@ -5,7 +5,7 @@ import Image from 'next/image'
 
 export default function FounderSection() {
   return (
-    <section className="py-12 sm:py-16 md:py-20 lg:py-32 bg-white">
+    <section className="py-12 sm:py-16 md:py-20 lg:py-32 bg-white overflow-x-hidden">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="max-w-6xl mx-auto">
           <div className="grid lg:grid-cols-2 gap-8 sm:gap-12 lg:gap-16 items-center">
@@ -15,7 +15,7 @@ export default function FounderSection() {
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.8 }}
-              className="relative order-2 lg:order-1"
+              className="relative order-2 lg:order-1 overflow-hidden"
             >
               <div className="relative w-full max-w-xs sm:max-w-md mx-auto">
                 <div className="absolute -inset-2 sm:-inset-4 bg-gradient-to-br from-primary/20 to-accent-teal/20 rounded-full blur-2xl" />
