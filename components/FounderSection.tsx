@@ -1,6 +1,7 @@
 'use client'
 
 import { motion } from 'framer-motion'
+import Image from 'next/image'
 
 export default function FounderSection() {
   return (
@@ -18,10 +19,13 @@ export default function FounderSection() {
             >
               <div className="relative w-full max-w-xs sm:max-w-md mx-auto">
                 <div className="absolute -inset-2 sm:-inset-4 bg-gradient-to-br from-primary/20 to-accent-teal/20 rounded-full blur-2xl" />
-                <img
+                <Image
                   src="/founder-headshot.jpg"
                   alt="Dr. Medhanit Aberra"
+                  width={600}
+                  height={600}
                   className="relative rounded-full w-full aspect-square object-cover shadow-2xl ring-4 sm:ring-8 ring-primary-light"
+                  priority
                 />
               </div>
             </motion.div>

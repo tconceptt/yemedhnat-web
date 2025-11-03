@@ -2,6 +2,7 @@
 
 import { motion } from 'framer-motion'
 import { Users, Smile } from 'lucide-react'
+import Image from 'next/image'
 
 export default function TeamSection() {
   return (
@@ -23,10 +24,13 @@ export default function TeamSection() {
                 
                 {/* Main image */}
                 <div className="relative rounded-2xl sm:rounded-3xl overflow-hidden shadow-2xl bg-primary-light/20">
-                  <img
+                  <Image
                     src="/yemedhnat-team.JPG"
                     alt="Yemedhnat Clinic team of medical experts"
+                    width={1200}
+                    height={800}
                     className="w-full h-auto object-contain"
+                    priority
                   />
                 </div>
               </div>

@@ -1,7 +1,7 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { Calendar, ArrowRight } from 'lucide-react'
+import { Phone, ArrowRight } from 'lucide-react'
 import Button from './Button'
 
 export default function FinalCTA() {
@@ -37,13 +37,13 @@ export default function FinalCTA() {
             className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center px-4"
           >
             <motion.a
-              href="#contact"
+              href={`tel:+251974246764`}
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              className="inline-flex items-center justify-center gap-2 px-6 sm:px-8 md:px-10 py-3 sm:py-4 md:py-5 bg-gradient-to-br from-accent-teal to-accent-teal/80 hover:from-accent-teal/90 hover:to-accent-teal text-white text-base sm:text-lg font-semibold rounded-lg shadow-xl hover:shadow-2xl transition-all duration-300 w-full sm:w-auto"
+              className="inline-flex items-center justify-center gap-2 px-6 sm:px-8 md:px-10 py-3 sm:py-4 md:py-5 bg-gradient-to-br from-primary to-primary-dark hover:from-primary-dark hover:to-primary text-white text-base sm:text-lg font-semibold rounded-lg shadow-xl hover:shadow-2xl transition-all duration-300 w-full sm:w-auto"
             >
-              <Calendar className="w-5 h-5 sm:w-6 sm:h-6" />
-              Book Your Appointment
+              <Phone className="w-5 h-5 sm:w-6 sm:h-6" />
+              Call Us Now
               <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5" />
             </motion.a>
           </motion.div>

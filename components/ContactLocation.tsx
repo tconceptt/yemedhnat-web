@@ -63,7 +63,7 @@ export default function ContactLocation() {
                 </div>
                 <div>
                   <h3 className="font-semibold text-base sm:text-lg text-primary-dark mb-1">Phone</h3>
-                  <p className="text-sm sm:text-base text-gray-700">+251 11 XXX XXXX</p>
+                  <a href={`tel:+251974246764`} className="text-sm sm:text-base text-gray-700 hover:text-primary transition-colors">+251 974 246 764</a>
                 </div>
               </div>
 
@@ -83,8 +83,7 @@ export default function ContactLocation() {
                 </div>
                 <div>
                   <h3 className="font-semibold text-base sm:text-lg text-primary-dark mb-1">Hours</h3>
-                  <p className="text-sm sm:text-base text-gray-700">Mon-Fri: 8:00 AM - 6:00 PM</p>
-                  <p className="text-sm sm:text-base text-gray-700">Sat: 9:00 AM - 2:00 PM</p>
+                  <p className="text-sm sm:text-base text-gray-700">Open 24/7</p>
                 </div>
               </div>
             </div>
@@ -158,7 +157,7 @@ export default function ContactLocation() {
                   type="tel"
                   id="phone"
                   className="w-full px-3 sm:px-4 py-2.5 sm:py-3 text-sm sm:text-base rounded-lg border border-gray-300 focus:ring-2 focus:ring-primary focus:border-transparent transition-all"
-                  placeholder="+251 XXX XXX XXX"
+                  placeholder="+251 974 246 764"
                 />
               </div>
 

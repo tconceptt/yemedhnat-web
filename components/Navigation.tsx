@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { Menu, X, Calendar } from 'lucide-react'
 import Button from './Button'
+import Image from 'next/image'
 
 export default function Navigation() {
   const [isScrolled, setIsScrolled] = useState(false)
@@ -63,8 +64,15 @@ export default function Navigation() {
               onClick={(e) => scrollToSection(e, '#home')}
               className="flex items-center gap-2 sm:gap-3 group"
             >
-              <div className="w-9 h-9 sm:w-10 sm:h-10 md:w-12 md:h-12 bg-primary rounded-full flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
-                <span className="text-white font-bold text-base sm:text-lg md:text-xl">Y</span>
+              <div className="w-9 h-9 sm:w-10 sm:h-10 md:w-12 md:h-12 rounded-full overflow-hidden group-hover:scale-110 transition-transform duration-300">
+                <Image
+                  src="/logo-transparent.png"
+                  alt="Yemedhnat Clinic logo"
+                  width={48}
+                  height={48}
+                  className="w-full h-full object-contain"
+                  priority
+                />
               </div>
               <div className="hidden sm:block">
                 <h1 className="font-serif font-medium text-lg sm:text-xl text-primary-dark leading-tight tracking-tight">
@@ -179,9 +187,9 @@ export default function Navigation() {
                 <div className="p-6 border-t">
                   <Button
                     variant="primary"
-                    size="lg"
+                    size="sm"
                     icon={Calendar}
-                    className="w-full"
+                    className="w-full rounded-full shadow-xl ring-1 ring-primary/20 px-5 py-2.5 text-sm"
                     onClick={(e) => {
                       if (e) {
                         e.preventDefault()
@@ -189,7 +197,7 @@ export default function Navigation() {
                       }
                     }}
                   >
-                    Book Appointment
+                    Book Now
                   </Button>
                 </div>
               </div>

@@ -1,5 +1,10 @@
 import type { Metadata } from 'next'
 import './globals.css'
+import { Cormorant_Garamond, Source_Sans_3 } from 'next/font/google'
+import { Analytics } from '@vercel/analytics/react'
+
+const cormorant = Cormorant_Garamond({ subsets: ['latin'], weight: ['300', '400', '500', '600', '700'], display: 'swap' })
+const sourceSans = Source_Sans_3({ subsets: ['latin'], weight: ['300', '400', '500', '600', '700'], display: 'swap' })
 
 export const metadata: Metadata = {
   title: 'Yemedhnat Internal Medicine Clinic | Expert Care in Addis Ababa',
@@ -17,12 +22,11 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <head>
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Source+Sans+Pro:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
-      </head>
-      <body className="font-sans">{children}</body>
+      <head></head>
+      <body className={`${sourceSans.className} font-sans`}>
+        {children}
+        <Analytics />
+      </body>
     </html>
   )
 }
