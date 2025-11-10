@@ -109,6 +109,7 @@ export default function ContactLocation() {
                 allowFullScreen
                 loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade"
+                title="Map showing Yemedhnat Clinic location in Bole Bulbula, Addis Ababa"
               />
             </div>
 

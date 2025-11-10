@@ -21,7 +21,7 @@ export default function FounderSection() {
                 <div className="absolute -inset-2 sm:-inset-4 bg-gradient-to-br from-primary/20 to-accent-teal/20 rounded-full blur-2xl" />
                 <Image
                   src="/founder-headshot.jpg"
-                  alt="Dr. Medhanit Aberra"
+                  alt="Dr. Medhanit Aberra, founder and lead physician at Yemedhnat Clinic"
                   width={600}
                   height={600}
                   className="relative rounded-full w-full aspect-square object-cover shadow-2xl ring-4 sm:ring-8 ring-primary-light"
