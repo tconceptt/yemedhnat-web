@@ -10,9 +10,6 @@ export const metadata: Metadata = {
   title: 'Yemedhnat Internal Medicine Clinic | Expert Care in Addis Ababa',
   description: 'Comprehensive internal medicine care built on 30 years of compassionate expertise. Modern diagnostics, personalized treatment plans, and lasting patient relationships in Bole Bulbula, Addis Ababa.',
   keywords: ['internal medicine', 'clinic', 'Addis Ababa', 'healthcare', 'Dr. Medhanit Aberra', 'chronic disease', 'preventive care'],
-  icons: {
-    icon: '/favicon.ico',
-  },
 }
 
 export default function RootLayout({
