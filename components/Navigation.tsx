@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-import { Menu, X, Calendar } from 'lucide-react'
+import { Menu, X, Phone as PhoneIcon } from 'lucide-react'
 import Button from './Button'
 import Image from 'next/image'
 
@@ -102,15 +102,10 @@ export default function Navigation() {
               <Button 
                 variant="primary" 
                 size="md" 
-                icon={Calendar} 
-                onClick={(e) => {
-                  if (e) {
-                    e.preventDefault()
-                    scrollToSection(e as any, '#contact')
-                  }
-                }}
+                icon={PhoneIcon}
+                href={`tel:+251974246764`}
               >
-                Book Appointment
+                Call Now
               </Button>
             </div>
 
@@ -188,16 +183,11 @@ export default function Navigation() {
                   <Button
                     variant="primary"
                     size="sm"
-                    icon={Calendar}
+                    icon={PhoneIcon}
                     className="w-full rounded-full shadow-xl ring-1 ring-primary/20 px-5 py-2.5 text-sm"
-                    onClick={(e) => {
-                      if (e) {
-                        e.preventDefault()
-                        scrollToSection(e as any, '#contact')
-                      }
-                    }}
+                    href={`tel:+251974246764`}
                   >
-                    Book Now
+                    Call Now
                   </Button>
                 </div>
               </div>
