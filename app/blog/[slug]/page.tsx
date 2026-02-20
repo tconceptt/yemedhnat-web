@@ -112,11 +112,15 @@ export async function generateMetadata({ params }: BlogPostPageProps): Promise<M
 
 export default async function BlogPostPage({ params }: BlogPostPageProps) {
   if (!isSanityConfigured) {
+    if (process.env.NODE_ENV !== 'development') {
+      notFound()
+    }
+
     return (
       <main className="flex min-h-screen items-center justify-center bg-background px-6 py-16 text-center">
         <section className="w-full max-w-xl rounded-2xl border border-amber-300 bg-amber-50 p-8 text-amber-900">
-          <h1 className="mb-3 text-3xl font-semibold">Sanity configuration required</h1>
-          <p className="mb-6">This blog post page becomes active after your Sanity environment variables are set.</p>
+          <h1 className="mb-3 text-3xl font-semibold">Blog setup is not complete</h1>
+          <p className="mb-6">Set your Sanity environment variables, then restart the dev server.</p>
           <Link href="/blog" className="inline-flex items-center rounded-full bg-primary px-6 py-3 text-sm font-semibold text-white hover:bg-primary-dark">
             Go to Blog
           </Link>

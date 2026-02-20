@@ -1,8 +1,8 @@
-import imageUrlBuilder from '@sanity/image-url'
+import { createImageUrlBuilder } from '@sanity/image-url'
 import { isSanityConfigured, sanityConfig } from './env'
 
 const imageBuilder = isSanityConfigured
-  ? imageUrlBuilder({
+  ? createImageUrlBuilder({
       projectId: sanityConfig.projectId,
       dataset: sanityConfig.dataset,
     })

@@ -26,6 +26,8 @@ function formatDate(date: string) {
 
 export default async function BlogPage() {
   const posts = await getAllPosts()
+  const isDevelopment = process.env.NODE_ENV === 'development'
+  const showEmptyState = !isSanityConfigured || posts.length === 0
 
   return (
     <main className="min-h-screen bg-background pb-16 pt-28 sm:pt-32">
@@ -46,27 +48,18 @@ export default async function BlogPage() {
           </div>
         </div>
 
-        {!isSanityConfigured ? (
-          <section className="rounded-2xl border border-amber-300 bg-amber-50 p-6 text-amber-900 sm:p-8">
-            <h2 className="mb-2 text-2xl font-semibold">Sanity not configured yet</h2>
-            <p className="mb-4 text-base">
-              Add your Sanity environment variables to load blog posts from your CMS.
-            </p>
-            <pre className="overflow-x-auto rounded-xl bg-white/80 p-4 text-sm leading-7">
-{`NEXT_PUBLIC_SANITY_PROJECT_ID=your_project_id
-NEXT_PUBLIC_SANITY_DATASET=production
-NEXT_PUBLIC_SANITY_API_VERSION=2024-10-01
-# Optional only if your dataset is private:
-SANITY_API_READ_TOKEN=your_read_token`}
-            </pre>
-            <p className="mt-4 text-sm">
-              After adding these values in <code>.env.local</code>, restart your dev server.
-            </p>
-          </section>
-        ) : posts.length === 0 ? (
+        {showEmptyState ? (
           <section className="rounded-2xl border border-primary/20 bg-white p-10 text-center shadow-sm">
-            <h2 className="mb-2 text-2xl font-semibold text-gray-900">No posts yet</h2>
-            <p className="text-gray-600">Publish your first post in Sanity and it will appear here automatically.</p>
+            <h2 className="mb-2 text-2xl font-semibold text-gray-900">Articles Coming Soon</h2>
+            <p className="text-gray-600">We are preparing helpful health articles. Please check back soon.</p>
+
+            {!isSanityConfigured && isDevelopment ? (
+              <div className="mt-6 rounded-xl border border-amber-300 bg-amber-50 p-4 text-left text-sm text-amber-900">
+                <p className="font-semibold">Developer note</p>
+                <p className="mt-1">Sanity is not configured in this environment.</p>
+                <p className="mt-1">Set values in <code>.env.local</code> and restart the dev server.</p>
+              </div>
+            ) : null}
           </section>
         ) : (
           <section className="grid grid-cols-1 gap-8 md:grid-cols-2 xl:grid-cols-3">
