@@ -52,6 +52,7 @@ The website includes a Sanity-powered blog at `/blog` and `/blog/[slug]`.
 2. Fill your Sanity values.
 3. Restart the dev server.
 4. Complete Sanity Studio schema/content setup using `docs/sanity-blog-setup.md`.
+5. Configure the Sanity webhook in `docs/sanity-blog-setup.md` for instant cache revalidation after publish.
 
 ### Build
 

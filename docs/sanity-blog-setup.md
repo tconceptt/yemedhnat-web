@@ -10,6 +10,7 @@ Create or update `.env.local`:
 NEXT_PUBLIC_SANITY_PROJECT_ID=your_project_id
 NEXT_PUBLIC_SANITY_DATASET=production
 NEXT_PUBLIC_SANITY_API_VERSION=2024-10-01
+SANITY_REVALIDATE_SECRET=your_long_random_secret
 # Optional only if dataset is private:
 SANITY_API_READ_TOKEN=your_read_token
 ```
@@ -156,3 +157,40 @@ export const schemaTypes = [author, category, post]
 ## 4) Optional: private dataset
 
 If the dataset is private, create a Sanity read token and set `SANITY_API_READ_TOKEN` in `.env.local`.
+
+## 5) Configure webhook for instant blog updates (no redeploy)
+
+This repo exposes a revalidation endpoint at:
+
+```text
+POST /api/revalidate?secret=SANITY_REVALIDATE_SECRET
+```
+
+In Sanity Manage > API > Webhooks, create a webhook with:
+
+1. Name: `Revalidate blog pages`
+2. URL:
+   - Local: `http://localhost:3000/api/revalidate?secret=YOUR_SECRET`
+   - Production: `https://your-domain.com/api/revalidate?secret=YOUR_SECRET`
+3. Trigger on: `Create`, `Update`, `Delete`
+4. Filter:
+
+```groq
+_type in ["post", "author", "category"]
+```
+
+5. Projection:
+
+```groq
+{
+  "_type": _type,
+  "slug": slug.current,
+  "oldSlug": before().slug.current
+}
+```
+
+After this, publishing or editing posts in Sanity will refresh:
+
+- `/blog`
+- `/blog/[slug]`
+- `/sitemap.xml`

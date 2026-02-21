@@ -6,7 +6,8 @@ export const sanityClient = isSanityConfigured
       projectId: sanityConfig.projectId,
       dataset: sanityConfig.dataset,
       apiVersion: sanityConfig.apiVersion,
-      useCdn: process.env.NODE_ENV === 'production',
+      // Webhook-triggered ISR should always fetch fresh published content.
+      useCdn: false,
       perspective: 'published',
       token: sanityConfig.token,
     })
