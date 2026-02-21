@@ -1,22 +1,40 @@
 'use client'
 
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import Image from 'next/image'
 import { Award, MapPin, Stethoscope, Phone, X, Facebook, Users, Instagram } from 'lucide-react'
 
 export default function Hero() {
   const [isSocialPopupOpen, setIsSocialPopupOpen] = useState(false)
+  const scrollYRef = useRef(0)
 
   useEffect(() => {
+    const html = document.documentElement
+    const body = document.body
+
     if (isSocialPopupOpen) {
-      document.body.style.overflow = 'hidden'
+      scrollYRef.current = window.scrollY
+      html.style.overflow = 'hidden'
+      body.style.overflow = 'hidden'
+      body.style.position = 'fixed'
+      body.style.top = `-${scrollYRef.current}px`
+      body.style.width = '100%'
     } else {
-      document.body.style.overflow = 'auto'
+      html.style.overflow = ''
+      body.style.overflow = ''
+      body.style.position = ''
+      body.style.top = ''
+      body.style.width = ''
+      window.scrollTo(0, scrollYRef.current)
     }
 
     return () => {
-      document.body.style.overflow = 'auto'
+      html.style.overflow = ''
+      body.style.overflow = ''
+      body.style.position = ''
+      body.style.top = ''
+      body.style.width = ''
     }
   }, [isSocialPopupOpen])
 

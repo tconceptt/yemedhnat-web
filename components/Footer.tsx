@@ -84,8 +84,13 @@ export default function Footer() {
                 </a>
               </li>
               <li>
-                <a href="#contact" className="text-sm sm:text-base text-primary-light/80 hover:text-accent-teal transition-colors">
-                  Contact Us
+                <a href="/blog" className="text-sm sm:text-base text-primary-light/80 hover:text-accent-teal transition-colors">
+                  Blog
+                </a>
+              </li>
+              <li>
+                <a href="tel:+251974246764" className="text-sm sm:text-base text-primary-light/80 hover:text-accent-teal transition-colors">
+                  Call Us
                 </a>
               </li>
             </ul>

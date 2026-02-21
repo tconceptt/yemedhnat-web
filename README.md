@@ -44,6 +44,16 @@ npm run dev
 
 Open [http://localhost:3000](http://localhost:3000) to view the site.
 
+### Sanity Blog Integration
+
+The website includes a Sanity-powered blog at `/blog` and `/blog/[slug]`.
+
+1. Copy `.env.example` to `.env.local`.
+2. Fill your Sanity values.
+3. Restart the dev server.
+4. Complete Sanity Studio schema/content setup using `docs/sanity-blog-setup.md`.
+5. Configure the Sanity webhook in `docs/sanity-blog-setup.md` for instant cache revalidation after publish.
+
 ### Build
 
 Build for production:
@@ -63,8 +73,12 @@ npm start
 ```
 yemedhnat-web/
 ├── app/
+│   ├── blog/
+│   │   ├── [slug]/page.tsx
+│   │   └── page.tsx
 │   ├── globals.css
 │   ├── layout.tsx
+│   ├── not-found.tsx
 │   └── page.tsx
 ├── components/
 │   ├── Button.tsx
@@ -76,6 +90,15 @@ yemedhnat-web/
 │   ├── OurApproach.tsx
 │   ├── Services.tsx
 │   └── WhyChooseUs.tsx
+├── docs/
+│   └── sanity-blog-setup.md
+├── lib/
+│   └── sanity/
+│       ├── client.ts
+│       ├── env.ts
+│       ├── image.ts
+│       ├── queries.ts
+│       └── types.ts
 ├── public/
 ├── next.config.js
 ├── tailwind.config.ts
