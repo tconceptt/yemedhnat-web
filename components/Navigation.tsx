@@ -5,6 +5,7 @@ import { motion, AnimatePresence } from 'framer-motion'
 import { Menu, X, Phone as PhoneIcon } from 'lucide-react'
 import Button from './Button'
 import Image from 'next/image'
+import Link from 'next/link'
 
 export default function Navigation() {
   const [isScrolled, setIsScrolled] = useState(false)
@@ -95,6 +96,13 @@ export default function Navigation() {
                   <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-primary group-hover:w-full transition-all duration-300" />
                 </a>
               ))}
+              <Link
+                href="/blog"
+                className="text-gray-700 hover:text-primary font-medium transition-colors duration-300 relative group"
+              >
+                Blog
+                <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-primary group-hover:w-full transition-all duration-300" />
+              </Link>
             </div>
 
             {/* Desktop CTA */}
@@ -176,6 +184,16 @@ export default function Navigation() {
                       {link.label}
                     </motion.a>
                   ))}
+                  <motion.a
+                    href="/blog"
+                    onClick={() => setIsMobileMenuOpen(false)}
+                    initial={{ opacity: 0, x: 20 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ delay: navLinks.length * 0.1 }}
+                    className="block px-6 py-4 text-gray-700 hover:bg-primary-light hover:text-primary font-medium transition-colors duration-200"
+                  >
+                    Blog
+                  </motion.a>
                 </nav>
 
                 {/* Mobile CTA */}
