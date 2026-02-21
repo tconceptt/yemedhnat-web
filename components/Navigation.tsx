@@ -3,6 +3,7 @@
 import { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { Menu, X, Phone as PhoneIcon } from 'lucide-react'
+import { usePathname } from 'next/navigation'
 import Button from './Button'
 import Image from 'next/image'
 import Link from 'next/link'
@@ -10,6 +11,8 @@ import Link from 'next/link'
 export default function Navigation() {
   const [isScrolled, setIsScrolled] = useState(false)
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
+  const pathname = usePathname()
+  const isHomePage = pathname === '/'
 
   useEffect(() => {
     const handleScroll = () => {
@@ -28,9 +31,16 @@ export default function Navigation() {
     { href: '#contact', label: 'Contact' },
   ]
 
+  const getSectionHref = (href: string) => (isHomePage ? href : `/${href}`)
+
   const scrollToSection = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
-    e.preventDefault()
     setIsMobileMenuOpen(false)
+
+    if (!isHomePage) {
+      return
+    }
+
+    e.preventDefault()
 
     if (href === '#home') {
       window.scrollTo({ top: 0, behavior: 'smooth' })
@@ -61,7 +71,7 @@ export default function Navigation() {
           <div className="flex items-center justify-between">
             {/* Logo */}
             <a
-              href="#home"
+              href={getSectionHref('#home')}
               onClick={(e) => scrollToSection(e, '#home')}
               className="flex items-center gap-2 sm:gap-3 group"
             >
@@ -88,7 +98,7 @@ export default function Navigation() {
               {navLinks.map((link) => (
                 <a
                   key={link.href}
-                  href={link.href}
+                  href={getSectionHref(link.href)}
                   onClick={(e) => scrollToSection(e, link.href)}
                   className="text-gray-700 hover:text-primary font-medium transition-colors duration-300 relative group"
                 >
@@ -174,7 +184,7 @@ export default function Navigation() {
                   {navLinks.map((link, index) => (
                     <motion.a
                       key={link.href}
-                      href={link.href}
+                      href={getSectionHref(link.href)}
                       onClick={(e) => scrollToSection(e, link.href)}
                       initial={{ opacity: 0, x: 20 }}
                       animate={{ opacity: 1, x: 0 }}

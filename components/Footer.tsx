@@ -74,12 +74,12 @@ export default function Footer() {
             <h3 className="font-semibold text-base sm:text-lg mb-3 sm:mb-4">Quick Links</h3>
             <ul className="space-y-1.5 sm:space-y-2">
               <li>
-                <a href="#services" className="text-sm sm:text-base text-primary-light/80 hover:text-accent-teal transition-colors">
+                <a href="/#services" className="text-sm sm:text-base text-primary-light/80 hover:text-accent-teal transition-colors">
                   Our Services
                 </a>
               </li>
               <li>
-                <a href="#about" className="text-sm sm:text-base text-primary-light/80 hover:text-accent-teal transition-colors">
+                <a href="/#about" className="text-sm sm:text-base text-primary-light/80 hover:text-accent-teal transition-colors">
                   About Dr. Medhanit
                 </a>
               </li>
